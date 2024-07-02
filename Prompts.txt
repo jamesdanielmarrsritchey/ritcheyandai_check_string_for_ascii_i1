@@ -1,0 +1,23 @@
+jamesdanielmarrsritchey: Using PHP, write a function which checks if a string is ASCII. If it the entire string is ASCII, return bool TRUE. If the entire string is not ASCII, return bool FALSE. If parts of the string are ASCII, return string 'TR/SE'.
+
+GitHub Copilot: ```php
+function isAscii($str) {
+    // Check if the entire string is ASCII
+    if (mb_check_encoding($str, 'ASCII')) {
+        return true;
+    } else {
+        // Check if parts of the string are ASCII
+        for ($i = 0; $i < mb_strlen($str); $i++) {
+            if (ord(mb_substr($str, $i, 1)) > 127) {
+                return false;
+            }
+        }
+        // If some parts are ASCII but not the entire string
+        return 'TR/SE';
+    }
+}
+```
+
+jamesdanielmarrsritchey: What is ASCII?
+
+GitHub Copilot: ASCII stands for American Standard Code for Information Interchange. It is a character encoding standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment, and other devices that use text. The standard is based on the English alphabet and includes codes for 128 characters: 33 are non-printing control characters (such as carriage return or line feed), and 95 are printable characters, including the space (which is considered an invisible graphic), digits, punctuation marks, and uppercase and lowercase letters. ASCII was developed from telegraph codes and standardized in the 1960s. It has since been extended to include characters for other languages and symbols, though these extensions are not part of the original ASCII standard.
