@@ -1,0 +1,1 @@
+# ritcheyandai_check_string_for_ascii_i1
